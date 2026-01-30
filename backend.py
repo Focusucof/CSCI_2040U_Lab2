@@ -17,17 +17,17 @@ def append_csv(file_path, row):
 
 # read
 def get_data():
-    return read_csv('data.csv')
+    return read_csv('db.csv')
 
 # add array as new row to CSV
 # create
 def add_data(row):
-    append_csv('data.csv', row)
+    append_csv('db.csv', row)
 
 # update a specific row by index
 # update
 def update_data(index, new_row):
-    data = read_csv('data.csv')
+    data = read_csv('db.csv')
     if 0 <= index < len(data):
         data[index] = new_row
         with open('data.csv', mode='w', newline='') as file:
@@ -36,9 +36,9 @@ def update_data(index, new_row):
 
 # delete
 def delete_data(index):
-    data = read_csv('data.csv')
+    data = read_csv('db.csv')
     if 0 <= index < len(data):
         del data[index]
-        with open('data.csv', mode='w', newline='') as file:
+        with open('db.csv', mode='w', newline='') as file:
             csv_writer = csv.writer(file)
             csv_writer.writerows(data)

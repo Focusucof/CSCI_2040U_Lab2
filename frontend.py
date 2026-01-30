@@ -9,12 +9,20 @@ def CatalogMenu():
 
 def main():
     while True:
-        menu()
+        CatalogMenu()
         choice = input("Choose an Option: ")
 
         if choice == "1":
-            data= get_data()
+            data = get_data()
             print("Viewing items")
+
+            for item in data:
+                print("-" * 15)
+                print(item[0])
+                print(item[1])
+                print(item[2])
+            print("-" * 15)
+
             # back end 
 
         elif choice == "2":
@@ -33,7 +41,8 @@ def main():
             print("Invalid option")
 
 
-
+if __name__ == "__main__":
+    main()
 
 
 

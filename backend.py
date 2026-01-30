@@ -10,7 +10,7 @@ def read_csv(file_path):
 
 # Appends an array as a new row to the CSV file
 def append_csv(file_path, row):
-    with open(file_path, mode='a', newline='') as file:
+    with open(file_path, mode='a') as file:
         csv_writer = csv.writer(file)
         csv_writer.writerow(row)
 # ======================================================
@@ -30,7 +30,7 @@ def update_data(index, new_row):
     data = read_csv('db.csv')
     if 0 <= index < len(data):
         data[index] = new_row
-        with open('data.csv', mode='w', newline='') as file:
+        with open('db.csv', mode='w', newline='') as file:
             csv_writer = csv.writer(file)
             csv_writer.writerows(data)
 

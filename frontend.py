@@ -8,7 +8,7 @@ def CatalogMenu():
 def main():
     while True:
         menu()
-        choice = input("Choose: ")
+        choice = input("Choose an Option: ")
 
         if choice == "1":
             print("Viewing items")
@@ -28,6 +28,7 @@ def main():
 
         else:
             print("Invalid option")
+
 
 
 

@@ -42,3 +42,23 @@ def delete_data(index):
         with open('db.csv', mode='w', newline='') as file:
             csv_writer = csv.writer(file)
             csv_writer.writerows(data)
+
+def load_through():
+    catalog = []
+    with open ("db.csv", newline = "", encoding = "utf-8") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            catalog.append({
+                "genre": row["Genre"],
+                "title": row["Movie Title"],
+                "release_year": int(row["Release Date"])
+            })
+    print(catalog)
+
+def display_catalog():
+    data = get_data()
+    header, *rows = data
+    print(f"{header[0]:<5}{header[1]:<15}{header[2]}")
+    print ("-" * 40)
+    for row in rows:
+        print(f"{row[0]:<5} {row[1]:<15}{row[2]}")

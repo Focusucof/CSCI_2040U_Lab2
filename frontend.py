@@ -1,4 +1,5 @@
 from backend import get_data, add_data, update_data, delete_data
+from login import login
 
 def CatalogMenu():
     print("1: View items")
@@ -9,10 +10,25 @@ def CatalogMenu():
 
 
 def main():
+    logged_in = False
     while True:
         CatalogMenu()
         choice = input("Choose an Option: ")
+        if choice not in ["1", "5"] and not logged_in:
+            print("You need to be logged in to do that. Please login")
+            user = input("Username: ")
+            pswd = input("Password: ")
 
+            if user == "" or pswd == "":
+                print("Invalid username or password. ")
+                continue
+
+            logged_in = login(user, pswd)
+
+            if not logged_in:
+                print("Invalid username or password. ")
+                continue
+        
         if choice == "1":
             data = get_data()
             print("Viewing items")

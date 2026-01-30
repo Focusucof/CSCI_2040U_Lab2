@@ -36,14 +36,26 @@ def main():
             print("Item added")
 
         elif choice == "3":
+            data = get_data()
+
             index = input("Select an index to modify: ")
             index = int(index) - 1
+            value = input("Enter a property to modify (genre, name, year): ")
+            value = value.lower()
 
-            genre = input("Enter new Genre: ")
-            name = input("Enter new Name: ")
-            year = input("Enter new Year: ")
+            data = data[index]
 
-            update_data(index, [genre, name, year])
+            if value == "genre":
+                genre = input("Enter new Genre: ")
+                data[0] = genre
+            if value == "name":
+                name = input("Enter new Name: ")
+                data[1] = name
+            if value == "year":
+                year = input("Enter new Year: ")
+                data[2] = year
+
+            update_data(index, data)
 
             print("Item edited")
         

@@ -1,3 +1,5 @@
+from backend import get_data, add_data, update_data
+
 def CatalogMenu():
     print("1: View items")
     print("2: Add item")
@@ -11,6 +13,7 @@ def main():
         choice = input("Choose an Option: ")
 
         if choice == "1":
+            data= get_data()
             print("Viewing items")
             # back end 
 
@@ -28,6 +31,7 @@ def main():
 
         else:
             print("Invalid option")
+
 
 
 
